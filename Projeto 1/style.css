@@ -1,0 +1,69 @@
+#app{
+    width:100%;
+}
+
+.barra-vida {
+	height: 30px;
+	width: 500px;
+    border: 1px solid #000;
+    display: inline-block;
+}
+
+.progresso {
+	background-color: green;
+	height: 100%;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.centralizado{
+    margin:0 auto;
+    width: 56%;
+}
+
+.botoes{
+    width:20%;
+}
+
+.btn{
+    padding: 5px 15px;
+    border:1px solid black;
+    border-radius: 3px;
+    font-weight: bold;
+    color:#4e4e4e;
+    cursor: pointer;
+}
+
+.ataque{
+    background-color: #ff5232;
+}
+
+.ataqueEspecial{
+    background-color: #ffff42;
+}
+
+.cura{
+    background-color: #40ff40;
+}
+
+.desistir{
+    background-color: #e9e9e9;
+}
+
+.log{
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.jogador{
+    background-color: #40ff40;
+}
+
+.monstro{
+    background-color: #ff5232;
+}

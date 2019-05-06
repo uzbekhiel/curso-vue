@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <h1 class="titulo">Matador de Monstros</h1>
+    <hr>
+    <div class="centralizado">
+        <div class="barra-vida">
+            <div class="progresso" :style="{width:jogador.vida+'%'}"></div>
+        </div>
+    
+        <div class="barra-vida">
+            <div class="progresso" :style="{width:monstro.vida+'%'}"></div>
+        </div>
+    </div>
+    <hr>
+    <div class="centralizado botoes">
+        <a class="btn ataque" @click="ataque">Ataque</a>
+        <a class="btn ataqueEspecial" @click="ataqueEspecial">Ataque Especial</a>
+        <a class="btn cura" @click="cura">Cura</a>
+        <a class="btn desistir" >Desistir</a>
+    </div>
+    <hr>
+    <template v-for="(v,i) in jogador.logAtaque">
+        <div class="barra-vida log jogador">{{v}}</div>
+        <div class="barra-vida log monstro">{{monstro.logAtaque[i]}}</div>
+    </template>
+</div>
+
+
+<script src="app.js"></script>
