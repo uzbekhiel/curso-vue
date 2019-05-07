@@ -7,19 +7,24 @@
     <hr>
     <div class="centralizado">
         <div class="barra-vida">
-            <div class="progresso" :style="{width:jogador.vida+'%'}"></div>
+            <div :class="['progresso',{vidaBaixa:jogador.vidaBaixa},{vidaBoa:!jogador.vidaBaixa}]" :style="{width:jogador.vida+'%'}"></div>
         </div>
     
         <div class="barra-vida">
-            <div class="progresso" :style="{width:monstro.vida+'%'}"></div>
+            <div :class="['progresso',{vidaBaixa:monstro.vidaBaixa},{vidaBoa:!monstro.vidaBaixa}]" :style="{width:monstro.vida+'%'}"></div>
         </div>
     </div>
     <hr>
     <div class="centralizado botoes">
-        <a class="btn ataque" @click="ataque">Ataque</a>
-        <a class="btn ataqueEspecial" @click="ataqueEspecial">Ataque Especial</a>
-        <a class="btn cura" @click="cura">Cura</a>
-        <a class="btn desistir" >Desistir</a>
+        <template v-if="!desiste">
+            <a class="btn ataque" @click="ataque">Ataque</a>
+            <a class="btn ataqueEspecial" @click="ataqueEspecial">Ataque Especial</a>
+            <a class="btn cura" @click="cura">Cura</a>
+            <a class="btn desistir" @click="desiste = !desiste">Desistir</a>
+        </template>
+        <template v-else>
+            <a class="btn iniciar" @click="iniciaJogo" >Inicia Jogo</a>
+        </template>
     </div>
     <hr>
     <template v-for="(v,i) in jogador.logAtaque">
