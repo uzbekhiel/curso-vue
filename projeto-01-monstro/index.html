@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Matador de Monstro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <div class="panel scores">
+            <score player="Jogador" :life="playerLife"></score>
+            <score player="Monstro" :life="monsterLife"></score>
+        </div>
+        <div class="panel result" v-if="hasResult">
+            <div v-if="monsterLife == 0" class="win">Você ganhou :)</div>
+            <div v-else class="lose">Você perdeu :(</div>
+        </div>
+        <div class="panel buttons">
+            <template v-if="running">
+                <button class="btn attack" @click="attack(false)">ataque</button>
+                <button class="btn special" @click="attack(true)">ataque especial</button>
+                <button class="btn heal" @click="healAndHurt">cura</button>
+                <button @click="running = false" class="btn give-up">desistir</button>
+            </template>
+            <button v-else @click="startGame" class="btn new-game">iniciar jogo</button>
+        </div>
+        <div class="panel logs" v-if="logs.length > 0">
+            <ul>
+                <li v-for="log in logs" class="log" :class="log.cls">
+                    {{log.text}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="vue.js"></script>
+    <script type="text/x-template" id="score">
+        <div class="score">
+            <h1>{{player}}</h1>
+            <div class="life-bar">
+                <div class="life" :class="{'danger': life < 20}"  :style="{width: life + '%'}">
+
+                </div>
+            </div>
+            <div>{{life}}%</div>
+        </div>
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
