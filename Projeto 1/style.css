@@ -14,6 +14,14 @@
 	height: 100%;
 }
 
+.vidaBoa{
+    background-color: green;
+}
+
+.vidaBaixa{
+    background-color: red;
+}
+
 .titulo{
     text-align: center;
 }
@@ -50,6 +58,11 @@
 
 .desistir{
     background-color: #e9e9e9;
+}
+
+.iniciar{
+    background-color: blue;
+    color:white;
 }
 
 .log{
